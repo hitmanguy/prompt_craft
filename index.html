@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Veridia Prime</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Hidden Audio Player for Background Music -->
+    <audio id="bg-music" loop>
+      <source src="path/to/your/cyberpunk-music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- System Boot-up Overlay -->
+    <div id="boot-overlay">
+      <div class="glitch-text" data-text="INITIALIZING SYSTEM...">
+        INITIALIZING SYSTEM...
+      </div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="boot-text">Loading OmniCorp HoloNet Interface... [OK]</div>
+    </div>
+
+    <div class="main-container">
+      <!-- Header and Navigation -->
+      <header class="main-header">
+        <div class="logo glitch-text" data-text="VERIDIA PRIME">
+          VERIDIA PRIME
+        </div>
+        <nav class="main-nav">
+          <a href="#lore" class="nav-link">Lore</a>
+          <a href="#districts" class="nav-link">Districts</a>
+          <a href="#data-stream" class="nav-link">Data Stream</a>
+          <a href="#survival-guide" class="nav-link">Survival Guide</a>
+          <span id="secret-access-trigger" class="nav-link nav-secret"
+            >[ACCESS_DENIED]</span
+          >
+        </nav>
+        <div class="theme-switcher">
+          <input type="checkbox" id="theme-toggle" class="theme-toggle" />
+          <label for="theme-toggle" class="theme-label"></label>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section id="hero">
+        <div class="hero-content">
+          <h1
+            class="glitch-text"
+            data-text="The Future is Green. The Future is OmniCorp."
+          >
+            The Future is Green. The Future is OmniCorp.
+          </h1>
+          <p>
+            Welcome, tourist. Explore the jewel of the new world. Veridia Prime:
+            where technology and nature achieve perfect, beautiful synthesis.
+          </p>
+          <a href="#lore" class="cta-button">Enter the City ></a>
+        </div>
+      </section>
+
+      <!-- City Lore Section -->
+      <section id="lore" class="content-section">
+        <h2>[TRANSMISSION_ID: 001] City Lore</h2>
+        <div class="lore-container">
+          <p>
+            Veridia Prime rose from the ashes of the Great Blight, a testament
+            to OmniCorp's vision. We terraformed the toxic wastes into a
+            thriving urban jungle, a self-sustaining arcology powered by
+            geo-thermal vents and corporate ambition. Our citizens enjoy
+            unparalleled safety and prosperity under the watchful eye of the
+            Omni-Grid. Remember: Compliance ensures harmony.
+          </p>
+          <p class="hidden-lore" id="hidden-lore-1">
+            <span class="redacted">[REDACTED]</span> They lie. The "Blight" was
+            their own creation, a terraforming experiment gone wrong. They built
+            this "paradise" on the bones of those who resisted. The green is
+            just a mask for the rot underneath. Don't trust the water. Don't
+            trust the air. Trust only the static between stations.
+          </p>
+        </div>
+      </section>
+
+      <!-- Districts Section -->
+      <section id="districts" class="content-section">
+        <h2>[DATA_NODE: 002] City Districts</h2>
+        <div class="districts-grid">
+          <div class="district-card" id="atrium">
+            <h3>The Atrium</h3>
+            <p>
+              The gleaming corporate heart of the city. Towers of chrome and
+              cultivated flora pierce the synthetic sky. A must-see for any
+              visitor.
+            </p>
+          </div>
+          <div class="district-card" id="geoscape">
+            <h3>The Geoscape</h3>
+            <p>
+              Vast, bioluminescent caverns where the city's food and resources
+              are... grown. The air is thick with pollen and whispers.
+            </p>
+          </div>
+          <div class="district-card" id="sump">
+            <h3>The Sump</h3>
+            <p>
+              The old city ruins, now the underbelly. A chaotic, neon-drenched
+              market of contraband tech, street food, and secrets. Enter at your
+              own risk.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Dashboard Section -->
+      <section id="data-stream" class="content-section">
+        <h2>[LIVE_FEED: 003] Omni-Grid Data Stream</h2>
+        <div class="dashboard">
+          <div class="data-widget">
+            <h4>Air Quality Index</h4>
+            <p class="data-value" id="air-quality">99.8% PURIFIED</p>
+          </div>
+          <div class="data-widget">
+            <h4>Citizen Compliance</h4>
+            <p class="data-value" id="compliance">97.3%</p>
+          </div>
+          <div class="data-widget">
+            <h4>Network Security</h4>
+            <p class="data-value" id="network-status">STATUS: SECURE</p>
+            <!-- A hidden feature -->
+            <p
+              class="data-value hidden-data"
+              id="network-hack"
+              style="display: none"
+            >
+              BREACH DETECTED: [SECTOR_7G]
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Survival Guide Section (with creepy food stalls) -->
+      <section id="survival-guide" class="content-section">
+        <h2>[SURVIVAL_PROTOCOL: 004] Tourist Advisory</h2>
+        <div class="survival-tabs">
+          <button class="tab-link active" onclick="openTab(event, 'Slang')">
+            Local Slang
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'Food')">
+            Street Eats
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'Zeroed')">
+            Don't Get Zeroed
+          </button>
+        </div>
+
+        <!-- Slang Content -->
+        <div id="Slang" class="tab-content" style="display: block">
+          <ul>
+            <li>
+              <strong>Chrome-Head:</strong> Someone obsessed with cybernetic
+              enhancements.
+            </li>
+            <li>
+              <strong>Static:</strong> Useless information or corporate
+              propaganda.
+            </li>
+            <li>
+              <strong>Zeroed:</strong> To be erased—digitally and physically. A
+              ghost in the machine.
+            </li>
+            <li>
+              <strong>Green-Out:</strong> To be fooled by OmniCorp's eco-facade.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Food Stalls Content -->
+        <div id="Food" class="tab-content">
+          <p>Hungry? The Sump offers... unique local delicacies.</p>
+          <div class="food-stalls">
+            <div class="food-stall-card">
+              <h4>Synth-Noodle Bar</h4>
+              <p>
+                "Nutrient paste shaped like noodles. Comes in three colors.
+                Don't ask what the 'meat' is."
+              </p>
+            </div>
+            <div class="food-stall-card">
+              <h4>Glow-Fungus Skewers</h4>
+              <p>
+                "Harvested from the deepest parts of the Geoscape. Tastes like
+                static electricity and regret. Mildly hallucinogenic."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How Not to Get Zeroed Content -->
+        <div id="Zeroed" class="tab-content">
+          <ol>
+            <li>
+              Never speak ill of OmniCorp where a camera can see you (hint: they
+              see everything).
+            </li>
+            <li>Don't connect unauthorized hardware to the public grid.</li>
+            <li>If you see a "Compliance Officer," walk the other way.</li>
+            <li>Pay your data-tithes on time.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Secret Access Panel -->
+      <div id="secret-panel" class="secret-panel">
+        <div class="secret-panel-content">
+          <button id="close-secret-panel" class="close-button">&times;</button>
+          <h3>[//ROOT_ACCESS_GRANTED]</h3>
+          <p>
+            Welcome, Ghost. You found a way in. The official channels are full
+            of static. Here's the real feed.
+          </p>
+          <div class="terminal">
+            <p>> Running decrypt.exe...</p>
+            <p>> OmniCorp Internal Memo 77-B:</p>
+            <p>
+              > ...Geoscape fungus showing unexpected neuro-toxic effects on
+              Sump population. Acceptable losses for Project Chimera...
+            </p>
+            <p class="blink">> _</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
