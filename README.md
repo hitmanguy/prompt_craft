@@ -1,8 +1,8 @@
-# NeoSarai — Cyberpunk City Interface
+# VERIDIA PRIME — Cyberpunk City Interface
 
 ## Overview
 
-**NeoSarai** is a cyberpunk‑themed interactive website that acts as the homepage and tourist interface for a fictional high‑tech city. It blends atmospheric visuals, lore, and interactivity to immerse visitors in a futuristic neon world. From virtual districts and street slang to data dashboards and survival tips, NeoSarai invites users to explore the underbelly of a dystopian metropolis — guided by an AI chatbot tour guide.
+**VERIDIA PRIME** is a cyberpunk‑themed interactive website that acts as the homepage and tourist interface for a fictional high‑tech city. It blends atmospheric visuals, lore, and interactivity to immerse visitors in a futuristic neon world. From virtual districts and street slang to data dashboards and survival tips, NeoSarai invites users to explore the underbelly of a dystopian metropolis — guided by an AI chatbot tour guide.
 
 ---
 
