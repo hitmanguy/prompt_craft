@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="dark-mode">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF--8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Veridia Prime // OmniCorp HoloNet Interface</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -14,16 +14,18 @@
     />
   </head>
   <body>
-    <!-- Fullscreen Video Background -->
+    <!-- NEW: Fullscreen Video Background -->
     <div class="video-background-container">
       <video
         id="hero-video"
         muted
-        playsinline
+        autoplay
         loop
+        playsinline
         poster="path/to/your/video-poster.jpg"
       >
-        <source src="video.mp4" type="video/mp4" />
+        <!-- IMPORTANT: Replace with your actual video file -->
+        <source src="assets/video.mp4" type="video/mp4" />
       </video>
       <div class="video-overlay"></div>
     </div>
@@ -31,7 +33,8 @@
     <div class="scanline-overlay"></div>
     <div id="particle-container"></div>
     <audio id="bg-music" loop>
-      <source src="music1.flac" type="audio/mpeg" />
+      <!-- IMPORTANT: Replace with your actual audio file -->
+      <source src="assets/music1.flac" type="audio/mpeg" />
     </audio>
 
     <div id="boot-overlay">
@@ -62,6 +65,7 @@
       </header>
 
       <section id="hero">
+        <div class="hero-background-particles"></div>
         <div class="hero-content">
           <h1 id="hero-title"></h1>
           <p data-aos="fade-up" data-aos-delay="200" class="hero-subtitle">
@@ -71,7 +75,7 @@
           <a
             href="#lore"
             id="start-tour-button"
-            class="cta-button pulse-animation"
+            class="cta-button pulse-btn"
             data-aos="fade-up"
             data-aos-delay="400"
             >Begin Your Tour ></a
@@ -81,23 +85,18 @@
 
       <section id="lore" class="content-section" data-aos="fade-right">
         <h2>[TRANSMISSION_ID: 001] Official City Lore</h2>
-        <div class="lore-container">
-          <div class="data-stream-effect">
-            <p class="official-text">
-              Veridia Prime rose from the ashes of the Great Blight, a testament
-              to OmniCorp's vision. We terraformed the toxic wastes into a
-              thriving urban jungle, a self-sustaining arcology powered by
-              geo-thermal vents and corporate ambition. Remember: Compliance
-              ensures harmony.
-            </p>
-            <p class="hidden-lore" id="hidden-lore-1">
-              <span class="redacted">[REDACTED]</span> They lie. The "Blight"
-              was their own creation, an experiment gone wrong. They built this
-              "paradise" on bones. The green is a mask for the rot. Don't trust
-              the water. Don't trust the air. Trust only the static.
-            </p>
-          </div>
-        </div>
+        <p class="official-text">
+          Veridia Prime rose from the ashes of the Great Blight, a testament to
+          OmniCorp's vision. We terraformed the toxic wastes into a thriving
+          urban jungle, a self-sustaining arcology powered by geo-thermal vents
+          and corporate ambition. Remember: Compliance ensures harmony.
+        </p>
+        <p class="hidden-lore" id="hidden-lore-1">
+          <span class="redacted">[REDACTED]</span> They lie. The "Blight" was
+          their own creation, an experiment gone wrong. They built this
+          "paradise" on bones. The green is a mask for the rot. Don't trust the
+          water. Don't trust the air. Trust only the static.
+        </p>
       </section>
 
       <section id="districts" class="content-section locked">
@@ -107,38 +106,45 @@
         </div>
         <h2 data-aos="fade-up">[DATA_NODE: 002] City Districts</h2>
         <div class="districts-grid">
+          <!-- UPDATED: data-image with new generated image URL -->
           <div
             class="district-card floating-card"
             data-aos="fade-up"
             data-aos-delay="100"
             data-district="The Atrium"
-            data-image="1.jpeg"
+            data-image="assets/1.jpeg"
           >
-            <div class="card-glow"></div>
+            <img src="assets/1.jpeg" alt="The Atrium" class="district-image" />
             <h3>The Atrium</h3>
             <p>The gleaming corporate heart of the city.</p>
             <span class="district-cta"> > Jack In </span>
           </div>
+          <!-- UPDATED: data-image with new generated image URL -->
           <div
             class="district-card floating-card"
             data-aos="fade-up"
             data-aos-delay="200"
             data-district="The Geoscape"
-            data-image="2.jpeg"
+            data-image="assets/2.jpeg"
           >
-            <div class="card-glow"></div>
+            <img
+              src="assets/2.jpeg"
+              alt="The Geoscape"
+              class="district-image"
+            />
             <h3>The Geoscape</h3>
             <p>Vast, bioluminescent caverns where resources are... grown.</p>
             <span class="district-cta"> > Jack In </span>
           </div>
+          <!-- UPDATED: data-image with new generated image URL -->
           <div
             class="district-card floating-card"
             data-aos="fade-up"
             data-aos-delay="300"
             data-district="The Sump"
-            data-image="3.jpeg"
+            data-image="assets/3.jpeg"
           >
-            <div class="card-glow"></div>
+            <img src="assets/3.jpeg" alt="The Sump" class="district-image" />
             <h3>The Sump</h3>
             <p>The chaotic, neon-drenched underbelly of the old city.</p>
             <span class="district-cta"> > Jack In </span>
@@ -152,10 +158,6 @@
           SYSTEM LOCK // FURTHER ACCESS REQUIRED
         </div>
         <h2 data-aos="fade-up">[CONNECTION_NODE: 004] Data Broker</h2>
-        <p data-aos="fade-up" class="section-subtitle">
-          Looking for info the Omni-Grid won't show you? Ask the broker. Some
-          questions are more expensive than others. Be discreet.
-        </p>
         <div class="broker-terminal breathing-animation" data-aos="fade-up">
           <div class="terminal-header">
             <span class="terminal-dot red"></span
@@ -175,9 +177,7 @@
               placeholder="Ask a question..."
               autocomplete="off"
             />
-            <button id="broker-submit" class="broker-submit pulse-btn">
-              Transmit
-            </button>
+            <button id="broker-submit" class="broker-submit">Transmit</button>
           </div>
         </div>
       </section>
@@ -204,72 +204,48 @@
           </button>
         </div>
         <div id="Slang" class="tab-content" style="display: block">
-          <ul class="glossary-list">
-            <li class="glossary-item">
+          <ul>
+            <li>
               <strong>Chrome-Head:</strong> Someone obsessed with cybernetic
               enhancements.
             </li>
-            <li class="glossary-item">
+            <li>
               <strong>Static:</strong> Useless information or corporate
               propaganda.
             </li>
-            <li class="glossary-item">
+            <li>
               <strong>Zeroed:</strong> To be erased—digitally and physically. A
               ghost in the machine.
-            </li>
-            <li class="glossary-item">
-              <strong>Green-Out:</strong> To be fooled by OmniCorp's eco-facade.
             </li>
           </ul>
         </div>
         <div id="Food" class="tab-content">
-          <p class="food-intro">
-            Hungry? The Sump offers... unique local delicacies.
-          </p>
           <div class="food-stalls">
             <div
-              class="food-stall-card interactive floating-card"
+              class="food-stall-card interactive"
               data-stall="Synth-Noodle Bar"
             >
               <div class="vendor-avatar">🍜</div>
               <h4>Synth-Noodle Bar</h4>
-              <p>
-                "Nutrient paste shaped like noodles. Comes in three colors.
-                Don't ask what the 'meat' is."
-              </p>
-              <span class="interact-cta pulse-animation"
-                >> Chat with Vendor</span
-              >
+              <p>Nutrient paste shaped like noodles. Comes in three colors.</p>
+              <span class="interact-cta">&gt; Chat with Vendor</span>
             </div>
             <div
-              class="food-stall-card interactive floating-card"
+              class="food-stall-card interactive"
               data-stall="Glow-Fungus Skewers"
             >
               <div class="vendor-avatar">🍄</div>
               <h4>Glow-Fungus Skewers</h4>
-              <p>
-                "Harvested from the deepest parts of the Geoscape. Tastes like
-                static electricity and regret. Mildly hallucinogenic."
-              </p>
-              <span class="interact-cta pulse-animation"
-                >> Chat with Vendor</span
-              >
+              <p>Harvested from the Geoscape. Tastes like static and regret.</p>
+              <span class="interact-cta">&gt; Chat with Vendor</span>
             </div>
           </div>
         </div>
         <div id="Zeroed" class="tab-content">
-          <ol class="survival-rules">
-            <li class="rule-item">
-              Never speak ill of OmniCorp where a camera can see you (hint: they
-              see everything).
-            </li>
-            <li class="rule-item">
-              Don't connect unauthorized hardware to the public grid.
-            </li>
-            <li class="rule-item">
-              If you see a "Compliance Officer," walk the other way.
-            </li>
-            <li class="rule-item">Pay your data-tithes on time.</li>
+          <ol>
+            <li>Never speak ill of OmniCorp where a camera can see you.</li>
+            <li>Don't connect unauthorized hardware to the public grid.</li>
+            <li>If you see a "Compliance Officer," walk the other way.</li>
           </ol>
         </div>
       </section>
@@ -278,14 +254,11 @@
         <div class="modal-content">
           <button id="close-secret-panel" class="modal-close">&times;</button>
           <h3 class="secret-title">[//ROOT_ACCESS_GRANTED]</h3>
-          <p class="secret-intro">
-            The static clears. Here's what they don't want you to know.
-          </p>
           <div id="secret-terminal" class="terminal">
             <div class="terminal-header">
-              <span class="terminal-dot red"></span
-              ><span class="terminal-dot yellow"></span
-              ><span class="terminal-dot green"></span>
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
               <span class="terminal-title">CLASSIFIED_LOGS.exe</span>
             </div>
             <div class="terminal-content">
@@ -302,11 +275,11 @@
       <h4 class="mission-title">MISSION LOG</h4>
       <div class="mission-progress">
         <div class="progress-dots">
-          <span class="dot active" data-stage="0"></span
-          ><span class="dot" data-stage="1"></span
-          ><span class="dot" data-stage="2"></span
-          ><span class="dot" data-stage="3"></span
-          ><span class="dot" data-stage="4"></span>
+          <span class="dot active" data-stage="0"></span>
+          <span class="dot" data-stage="1"></span>
+          <span class="dot" data-stage="2"></span>
+          <span class="dot" data-stage="3"></span>
+          <span class="dot" data-stage="4"></span>
         </div>
       </div>
       <p id="mission-text">Loading objective...</p>
@@ -326,16 +299,12 @@
             </div>
             <img
               id="modal-image"
-              src="path/to/your/placeholder-image.jpg"
+              src=""
               alt="District View"
               class="district-image-display"
             />
           </div>
-          <div class="modal-text-content">
-            <div id="modal-ai-content" class="ai-content-area">
-              <p class="loading-text">Establishing neural link...</p>
-            </div>
-          </div>
+          <div id="modal-ai-content" class="ai-content-area"></div>
         </div>
       </div>
     </div>

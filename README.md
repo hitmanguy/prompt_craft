@@ -8,27 +8,28 @@
 
 ## Tech Stack
 
-* **Frontend:** HTML5, CSS3, JavaScript (static, no backend)
-* **AI Integration:** ChatGPT / Gemini used for content creation, chatbot logic, and prompt generation
-* **AI‑Generated Assets:**
+- **Frontend:** HTML5, CSS3, JavaScript (static, no backend)
+- **AI Integration:** ChatGPT / Gemini used for content creation, chatbot logic, and prompt generation
+- **AI‑Generated Assets:**
 
-  * **Background Images:** Generated using AI art tools (e.g., Midjourney, Leonardo AI)
-  * **Videos:** Looping atmospheric videos created with AI video generators
-  * **Music:** AI‑generated ambient cyberpunk soundtrack
-* **Fonts:** Google Fonts — Orbitron, Share Tech Mono, Inter
-* **Design Style:** Glitch, holographic, and neon aesthetics with a dark theme
+  - **Background Images:** Generated using AI art tools (e.g., Midjourney, Leonardo AI)
+  - **Videos:** Looping atmospheric videos created with AI video generators
+  - **Music:** AI‑generated ambient cyberpunk soundtrack
+
+- **Fonts:** Google Fonts — Orbitron, Share Tech Mono, Inter
+- **Design Style:** Glitch, holographic, and neon aesthetics with a dark theme
 
 ---
 
 ## Features
 
-* **City Telemetry Dashboard:** Real‑time styled data panels (AQI, grid load, traffic, etc.)
-* **District Explorer:** Interactive cards describing key areas like Neon Bazaar, Data Spire, and Cloud Temple
-* **Local Slang Index:** Learn NeoSarai’s unique dialect and street talk
-* **Street Food Stalls:** Futuristic cuisine listings with humorous descriptions
-* **Survival Guide:** Tips on “How Not to Get Zeroed” in the city
-* **Secret Access Terminal:** Hidden CSS‑only operator console with easter‑egg content
-* **AI Chatbot Tour Guide:** An integrated chatbot that acts as the city’s official tour guide, answering questions, suggesting places, and providing lore snippets
+- **City Telemetry Dashboard:** Real‑time styled data panels (AQI, grid load, traffic, etc.)
+- **District Explorer:** Interactive cards describing key areas like Neon Bazaar, Data Spire, and Cloud Temple
+- **Local Slang Index:** Learn NeoSarai’s unique dialect and street talk
+- **Street Food Stalls:** Futuristic cuisine listings with humorous descriptions
+- **Survival Guide:** Tips on “How Not to Get Zeroed” in the city
+- **Secret Access Terminal:** Hidden CSS‑only operator console with easter‑egg content
+- **AI Chatbot Tour Guide:** An integrated chatbot that acts as the city’s official tour guide, answering questions, suggesting places, and providing lore snippets
 
 ---
 
@@ -37,7 +38,7 @@
 1. **Download the Repository:**
 
    ```bash
-   git clone https://github.com/<your‑username>/neosarai.git
+   git clone https://github.com/hitmanguy/prompt_craft.git
    ```
 
 2. **Open the Project:**
@@ -52,19 +53,19 @@
 
 4. **Experience the Interface:**
 
-   * Explore districts and hover over cards to read city lore.
-   * Access the **AI Chatbot Tour Guide** via the floating assistant icon in the corner.
-   * Click **Operator Access** in the footer to open the hidden terminal.
-   * Enjoy the immersive **AI‑generated background video and ambient soundtrack.**
+   - Explore districts and hover over cards to read city lore.
+   - Access the **AI Chatbot Tour Guide** via the floating assistant icon in the corner.
+   - Click **Operator Access** in the footer to open the hidden terminal.
+   - Enjoy the immersive **AI‑generated background video and ambient soundtrack.**
 
 ---
 
 ## How It Works
 
-* **HTML/CSS:** Handles structure, layout, and theming.
-* **JavaScript:** Controls interactivity — dynamic panels, chatbot interface, and ambient media playback.
-* **Media Integration:** Background videos and sounds loop seamlessly for immersion.
-* **Accessibility:** Fully static build with no backend; optimized for performance and offline use.
+- **HTML/CSS:** Handles structure, layout, and theming.
+- **JavaScript:** Controls interactivity — dynamic panels, chatbot interface, and ambient media playback.
+- **Media Integration:** Background videos and sounds loop seamlessly for immersion.
+- **Accessibility:** Fully static build with no backend; optimized for performance and offline use.
 
 ---
 
@@ -86,9 +87,9 @@ neosarai/
 
 ## How to Customize
 
-* Replace assets in the `/assets` folder with your own AI‑generated visuals or soundscapes.
-* Edit the `index.html` text sections (districts, slang, food, etc.) to expand the city’s lore.
-* Update chatbot prompts in `script.js` to modify personality or tone.
+- Replace assets in the `/assets` folder with your own AI‑generated visuals or soundscapes.
+- Edit the `index.html` text sections (districts, slang, food, etc.) to expand the city’s lore.
+- Update chatbot prompts in `script.js` to modify personality or tone.
 
 ---
 
@@ -104,15 +105,15 @@ This project is for educational and creative demonstration purposes. All AI‑ge
 **Creative Direction:** [Your Name]
 **AI Design & Assets:** ChatGPT, Gemini, Midjourney, Leonardo AI
 **Music & Sound Design:** AI‑Generated Ambient Cyberpunk Suite
-**Inspiration:** *Blade Runner*, *Ghost in the Shell*, *Cyberpunk 2077*
+**Inspiration:** _Blade Runner_, _Ghost in the Shell_, _Cyberpunk 2077_
 
 ---
 
 ## Future Enhancements
 
-* Add voice synthesis to the chatbot for audio tours
-* Introduce interactive map navigation
-* Implement local save data for visitor badges
+- Add voice synthesis to the chatbot for audio tours
+- Introduce interactive map navigation
+- Implement local save data for visitor badges
 
 ---
 
