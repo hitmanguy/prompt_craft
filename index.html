@@ -4,29 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Veridia Prime</title>
+
+    <!-- NEW: AOS (Animate on Scroll) Library for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- NEW: Added 'VT323' font for a retro terminal look -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&family=VT323&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <!-- NEW: Scanline overlay for a retro monitor effect -->
+    <div class="scanline-overlay"></div>
+
     <!-- Hidden Audio Player for Background Music -->
     <audio id="bg-music" loop>
+      <!-- NEW: Replace with your actual music file path -->
       <source src="path/to/your/cyberpunk-music.mp3" type="audio/mpeg" />
     </audio>
 
     <!-- System Boot-up Overlay -->
     <div id="boot-overlay">
-      <div class="glitch-text" data-text="INITIALIZING SYSTEM...">
-        INITIALIZING SYSTEM...
+      <div class="boot-text-container">
+        <div class="glitch-text" data-text="INITIALIZING SYSTEM...">
+          INITIALIZING SYSTEM...
+        </div>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+        <div class="boot-text">Loading OmniCorp HoloNet Interface... [OK]</div>
       </div>
-      <div class="progress-bar">
-        <div class="progress"></div>
-      </div>
-      <div class="boot-text">Loading OmniCorp HoloNet Interface... [OK]</div>
     </div>
 
     <div class="main-container">
@@ -39,6 +50,8 @@
           <a href="#lore" class="nav-link">Lore</a>
           <a href="#districts" class="nav-link">Districts</a>
           <a href="#data-stream" class="nav-link">Data Stream</a>
+          <!-- NEW: Link to the new AI Data Broker section -->
+          <a href="#data-broker" class="nav-link">Data Broker</a>
           <a href="#survival-guide" class="nav-link">Survival Guide</a>
           <span id="secret-access-trigger" class="nav-link nav-secret"
             >[ACCESS_DENIED]</span
@@ -53,22 +66,24 @@
       <!-- Hero Section -->
       <section id="hero">
         <div class="hero-content">
-          <h1
-            class="glitch-text"
-            data-text="The Future is Green. The Future is OmniCorp."
-          >
-            The Future is Green. The Future is OmniCorp.
-          </h1>
-          <p>
+          <!-- NEW: The h1 will now have a typewriter effect from Typed.js -->
+          <h1 id="hero-title"></h1>
+          <p data-aos="fade-up" data-aos-delay="200">
             Welcome, tourist. Explore the jewel of the new world. Veridia Prime:
             where technology and nature achieve perfect, beautiful synthesis.
           </p>
-          <a href="#lore" class="cta-button">Enter the City ></a>
+          <a
+            href="#lore"
+            class="cta-button"
+            data-aos="fade-up"
+            data-aos-delay="400"
+            >Enter the City ></a
+          >
         </div>
       </section>
 
       <!-- City Lore Section -->
-      <section id="lore" class="content-section">
+      <section id="lore" class="content-section" data-aos="fade-right">
         <h2>[TRANSMISSION_ID: 001] City Lore</h2>
         <div class="lore-container">
           <p>
@@ -91,9 +106,11 @@
 
       <!-- Districts Section -->
       <section id="districts" class="content-section">
-        <h2>[DATA_NODE: 002] City Districts</h2>
+        <h2 data-aos="fade-up">[DATA_NODE: 002] City Districts</h2>
         <div class="districts-grid">
-          <div class="district-card" id="atrium">
+          <div class="district-card" data-aos="fade-up" data-aos-delay="100">
+            <!-- NEW: Image placement for district cards. Replace the src. -->
+            <img src="1.jpeg" alt="The Atrium" class="district-image" />
             <h3>The Atrium</h3>
             <p>
               The gleaming corporate heart of the city. Towers of chrome and
@@ -101,14 +118,18 @@
               visitor.
             </p>
           </div>
-          <div class="district-card" id="geoscape">
+          <div class="district-card" data-aos="fade-up" data-aos-delay="200">
+            <!-- NEW: Image placement for district cards. Replace the src. -->
+            <img src="2.jpeg" alt="The Geoscape" class="district-image" />
             <h3>The Geoscape</h3>
             <p>
               Vast, bioluminescent caverns where the city's food and resources
               are... grown. The air is thick with pollen and whispers.
             </p>
           </div>
-          <div class="district-card" id="sump">
+          <div class="district-card" data-aos="fade-up" data-aos-delay="300">
+            <!-- NEW: Image placement for district cards. Replace the src. -->
+            <img src="3.jpeg" alt="The Sump" class="district-image" />
             <h3>The Sump</h3>
             <p>
               The old city ruins, now the underbelly. A chaotic, neon-drenched
@@ -121,20 +142,19 @@
 
       <!-- Data Dashboard Section -->
       <section id="data-stream" class="content-section">
-        <h2>[LIVE_FEED: 003] Omni-Grid Data Stream</h2>
+        <h2 data-aos="fade-up">[LIVE_FEED: 003] Omni-Grid Data Stream</h2>
         <div class="dashboard">
-          <div class="data-widget">
+          <div class="data-widget" data-aos="zoom-in">
             <h4>Air Quality Index</h4>
             <p class="data-value" id="air-quality">99.8% PURIFIED</p>
           </div>
-          <div class="data-widget">
+          <div class="data-widget" data-aos="zoom-in" data-aos-delay="100">
             <h4>Citizen Compliance</h4>
             <p class="data-value" id="compliance">97.3%</p>
           </div>
-          <div class="data-widget">
+          <div class="data-widget" data-aos="zoom-in" data-aos-delay="200">
             <h4>Network Security</h4>
             <p class="data-value" id="network-status">STATUS: SECURE</p>
-            <!-- A hidden feature -->
             <p
               class="data-value hidden-data"
               id="network-hack"
@@ -146,9 +166,34 @@
         </div>
       </section>
 
-      <!-- Survival Guide Section (with creepy food stalls) -->
-      <section id="survival-guide" class="content-section">
-        <h2>[SURVIVAL_PROTOCOL: 004] Tourist Advisory</h2>
+      <!-- NEW: Data Broker (Gemini API) Section -->
+      <section id="data-broker" class="content-section">
+        <h2 data-aos="fade-up">[CONNECTION_NODE: 004] Data Broker</h2>
+        <p data-aos="fade-up">
+          Looking for information the Omni-Grid won't show you? Ask the broker.
+          Some questions are more expensive than others. Be discreet.
+        </p>
+        <div class="broker-terminal" data-aos="fade-up">
+          <div id="broker-output" class="broker-output">
+            <p>&gt; Connection established. Awaiting query...</p>
+          </div>
+          <div class="broker-input-line">
+            <span class="prompt">&gt;</span>
+            <input
+              type="text"
+              id="broker-input"
+              class="broker-input"
+              placeholder="Ask a question..."
+              autocomplete="off"
+            />
+            <button id="broker-submit" class="broker-submit">Transmit</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Survival Guide Section -->
+      <section id="survival-guide" class="content-section" data-aos="fade-left">
+        <h2>[SURVIVAL_PROTOCOL: 005] Tourist Advisory</h2>
         <div class="survival-tabs">
           <button class="tab-link active" onclick="openTab(event, 'Slang')">
             Local Slang
@@ -160,8 +205,6 @@
             Don't Get Zeroed
           </button>
         </div>
-
-        <!-- Slang Content -->
         <div id="Slang" class="tab-content" style="display: block">
           <ul>
             <li>
@@ -181,8 +224,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- Food Stalls Content -->
         <div id="Food" class="tab-content">
           <p>Hungry? The Sump offers... unique local delicacies.</p>
           <div class="food-stalls">
@@ -202,8 +243,6 @@
             </div>
           </div>
         </div>
-
-        <!-- How Not to Get Zeroed Content -->
         <div id="Zeroed" class="tab-content">
           <ol>
             <li>
@@ -220,6 +259,12 @@
       <!-- Secret Access Panel -->
       <div id="secret-panel" class="secret-panel">
         <div class="secret-panel-content">
+          <!-- NEW: Optional image placement for the secret panel -->
+          <img
+            src="path/to/your/hacker-icon.png"
+            alt="Root Access Icon"
+            class="secret-panel-icon"
+          />
           <button id="close-secret-panel" class="close-button">&times;</button>
           <h3>[//ROOT_ACCESS_GRANTED]</h3>
           <p>
@@ -238,6 +283,11 @@
         </div>
       </div>
     </div>
+
+    <!-- NEW: Typed.js for typewriter effect -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <!-- NEW: AOS (Animate on Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="script.js"></script>
   </body>

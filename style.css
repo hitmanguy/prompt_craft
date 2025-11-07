@@ -6,6 +6,7 @@
   --secondary-color-dark: #f700ff; /* Magenta */
   --card-bg-dark: rgba(20, 20, 40, 0.7);
   --border-color-dark: rgba(0, 247, 247, 0.3);
+  --terminal-color: #00ff00; /* Green for terminals */
 
   --bg-color-light: #e8e8f5;
   --text-color-light: #1c1c2e;
@@ -17,10 +18,13 @@
 
 /* --- Base and Font Setup --- */
 body {
+  /* NEW: Using a more general font stack */
   font-family: "Roboto Mono", monospace;
   margin: 0;
   transition: background-color 0.5s, color 0.5s;
   overflow-x: hidden;
+  /* NEW: Add a background image for atmosphere. Replace the path. */
+  background-image: url("path/to/your/main-background-texture.png");
 }
 
 html.dark-mode {
@@ -40,6 +44,33 @@ h4 {
   font-family: "Orbitron", sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
+}
+
+/* --- NEW: Scanline Overlay Effect --- */
+.scanline-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.2) 3px,
+    rgba(0, 0, 0, 0.2) 4px
+  );
+  pointer-events: none;
+  z-index: 1001;
+  animation: scanlines 10s linear infinite;
+}
+@keyframes scanlines {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100%;
+  }
 }
 
 /* --- Glitch Effect --- */
@@ -131,26 +162,31 @@ html.light-mode .glitch-text:hover::after {
   width: 100%;
   height: 100%;
   background: #000;
-  color: #00ff00;
+  color: var(--terminal-color);
   z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto Mono", monospace;
-  font-size: 1.5rem;
-  transition: opacity 1s 2s; /* Fade out after 2s delay */
+  /* NEW: Use the retro terminal font here */
+  font-family: "VT323", monospace;
+  font-size: 1.8rem;
+  transition: opacity 1s 2s;
+}
+.boot-text-container {
+  width: 80%;
+  max-width: 600px;
 }
 .progress-bar {
-  width: 50%;
+  width: 100%;
   height: 20px;
-  border: 1px solid #00ff00;
+  border: 1px solid var(--terminal-color);
   margin: 20px 0;
 }
 .progress {
   width: 0%;
   height: 100%;
-  background: #00ff00;
+  background: var(--terminal-color);
   animation: loading 3s forwards;
 }
 @keyframes loading {
@@ -167,9 +203,11 @@ html.light-mode .glitch-text:hover::after {
   padding: 1rem 5%;
   position: fixed;
   width: 90%;
+  top: 0;
   z-index: 100;
   background: rgba(10, 10, 20, 0.5);
   backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color-dark);
 }
 .logo {
   font-size: 1.5rem;
@@ -186,17 +224,29 @@ html.light-mode .glitch-text:hover::after {
   color: var(--text-color-light);
 }
 .nav-link:hover {
+  color: var(--primary-color-dark); /* NEW: Direct color change on hover */
   text-shadow: 0 0 10px var(--primary-color-dark);
 }
 .light-mode .nav-link:hover {
+  color: var(--primary-color-light);
   text-shadow: 0 0 10px var(--primary-color-light);
 }
 .nav-secret {
   cursor: pointer;
   color: var(--secondary-color-dark) !important;
+  animation: flicker 3s infinite; /* NEW: Add a flicker animation */
 }
 .light-mode .nav-secret {
   color: var(--secondary-color-light) !important;
+}
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 /* --- Theme Switcher --- */
@@ -243,6 +293,7 @@ html.light-mode .glitch-text:hover::after {
   align-items: center;
   justify-content: center;
   text-align: center;
+  /* NEW: Add your hero background image here. */
   background: url("path/to/your/city-background.jpg") no-repeat center
     center/cover;
   position: relative;
@@ -273,6 +324,7 @@ html.light-mode .glitch-text:hover::after {
 .hero-content h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
+  min-height: 100px; /* NEW: Give space for Typed.js to work without layout shift */
 }
 .cta-button {
   display: inline-block;
@@ -301,7 +353,7 @@ html.light-mode .glitch-text:hover::after {
 }
 
 .content-section {
-  padding: 6rem 0;
+  padding: 8rem 0; /* NEW: Increased padding to give AOS animations more space */
   max-width: 900px;
   margin: 0 auto;
 }
@@ -346,6 +398,21 @@ html.light-mode .glitch-text:hover::after {
   transition: 0.4s;
   background: var(--card-bg-dark);
   backdrop-filter: blur(5px);
+  /* NEW: Added overflow hidden for the image */
+  overflow: hidden;
+}
+/* NEW: District image styles */
+.district-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.district-card:hover .district-image {
+  transform: scale(1.1);
+  opacity: 1;
 }
 .light-mode .district-card {
   border-color: var(--border-color-light);
@@ -408,6 +475,76 @@ html.light-mode .glitch-text:hover::after {
   100% {
     text-shadow: 0 0 5px var(--primary-color-light);
   }
+}
+
+/* --- NEW: Data Broker (Gemini API) Styles --- */
+.broker-terminal {
+  border: 1px solid var(--border-color-dark);
+  background: var(--card-bg-dark);
+  padding: 1.5rem;
+  font-family: "VT323", monospace;
+  font-size: 1.2rem;
+}
+.light-mode .broker-terminal {
+  border-color: var(--border-color-light);
+  background: var(--card-bg-light);
+}
+.broker-output {
+  height: 250px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: var(--terminal-color);
+}
+.light-mode .broker-output {
+  color: #111;
+}
+.broker-output p {
+  margin: 0 0 0.5rem 0;
+}
+.broker-input-line {
+  display: flex;
+  align-items: center;
+}
+.prompt {
+  color: var(--terminal-color);
+  margin-right: 0.5rem;
+}
+.broker-input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  color: var(--primary-color-dark);
+  font-family: inherit;
+  font-size: inherit;
+}
+.light-mode .broker-input {
+  color: var(--primary-color-light);
+}
+.broker-input:focus {
+  outline: none;
+}
+.broker-submit {
+  background: none;
+  border: 1px solid var(--primary-color-dark);
+  color: var(--primary-color-dark);
+  font-family: "Orbitron", sans-serif;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-left: 1rem;
+  transition: all 0.3s;
+}
+.light-mode .broker-submit {
+  border-color: var(--primary-color-light);
+  color: var(--primary-color-light);
+}
+.broker-submit:hover {
+  background: var(--primary-color-dark);
+  color: var(--bg-color-dark);
+}
+.light-mode .broker-submit:hover {
+  background: var(--primary-color-light);
+  color: var(--bg-color-light);
 }
 
 /* --- Survival Guide Tabs --- */
@@ -495,10 +632,17 @@ html.light-mode .glitch-text:hover::after {
   max-width: 800px;
   height: 80%;
   padding: 2rem;
-  border: 1px solid #00ff00;
-  color: #00ff00;
-  background: #0a0a14;
+  border: 1px solid var(--terminal-color);
+  color: var(--terminal-color);
+  background: var(--bg-color-dark);
   position: relative;
+  text-align: center; /* NEW: Centering content */
+}
+/* NEW: Secret panel icon style */
+.secret-panel-icon {
+  max-width: 80px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px var(--terminal-color));
 }
 .close-button {
   position: absolute;
@@ -506,7 +650,7 @@ html.light-mode .glitch-text:hover::after {
   right: 1rem;
   background: none;
   border: none;
-  color: #00ff00;
+  color: var(--terminal-color);
   font-size: 2rem;
   cursor: pointer;
 }
@@ -515,7 +659,10 @@ html.light-mode .glitch-text:hover::after {
   padding: 1rem;
   height: 60%;
   overflow-y: auto;
-  font-size: 0.9rem;
+  /* NEW: Use retro font in terminal */
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  text-align: left; /* NEW: Align terminal text left */
 }
 .blink {
   animation: blink-anim 1s step-end infinite;
@@ -533,9 +680,17 @@ html.light-mode .glitch-text:hover::after {
   }
   .main-header {
     flex-direction: column;
+    padding: 0.5rem 5%;
   }
   .main-nav {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    /* NEW: Better wrapping for nav links */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-link {
+    margin: 0.2rem 0.5rem;
   }
   .dashboard {
     flex-direction: column;
@@ -543,6 +698,7 @@ html.light-mode .glitch-text:hover::after {
   }
   .data-widget {
     width: 100%;
+    box-sizing: border-box; /* NEW: Fix padding issue on small screens */
   }
   .food-stalls {
     grid-template-columns: 1fr;
