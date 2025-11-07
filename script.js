@@ -77,17 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightTarget = sections.dataBroker;
         break;
       case "3":
-        currentMission =
-          "🔓 Access the secret panel - the system is vulnerable";
+        currentMission = "📋 Check the survival guide for intel";
         unlock(sections.survivalGuide, navLinks.survivalGuide);
-        highlightTarget = navLinks.secretAccess;
+        highlightTarget = sections.survivalGuide;
         break;
       case "4":
         currentMission = "✅ Truth revealed. The city is yours to explore";
         Object.values(sections).forEach((s, i) =>
           unlock(s, Object.values(navLinks)[i])
         );
-        unlock(null, navLinks.secretAccess);
         break;
     }
 
@@ -205,9 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const secretTrigger = document.getElementById("secret-access-trigger");
     if (secretTrigger) {
-      secretTrigger.addEventListener("click", () => {
-        if (parseInt(storyState) >= 3) openSecretPanel();
-      });
+      secretTrigger.addEventListener("click", openSecretPanel);
     }
 
     document

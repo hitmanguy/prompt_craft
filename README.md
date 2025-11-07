@@ -66,6 +66,7 @@
 - **JavaScript:** Controls interactivity — dynamic panels, chatbot interface, and ambient media playback.
 - **Media Integration:** Background videos and sounds loop seamlessly for immersion.
 - **Accessibility:** Fully static build with no backend; optimized for performance and offline use.
+  **Add a gemini API key in script.js before clicking on index.html**
 
 ---
 
@@ -90,12 +91,7 @@ neosarai/
 - Replace assets in the `/assets` folder with your own AI‑generated visuals or soundscapes.
 - Edit the `index.html` text sections (districts, slang, food, etc.) to expand the city’s lore.
 - Update chatbot prompts in `script.js` to modify personality or tone.
-
----
-
-## License & Attribution
-
-This project is for educational and creative demonstration purposes. All AI‑generated assets are either created by the team or sourced from open‑licensed platforms. Please credit **NeoSarai Project Team** if you reuse or remix components.
+- run the index.html file
 
 ---
 
@@ -116,5 +112,3 @@ This project is for educational and creative demonstration purposes. All AI‑ge
 - Implement local save data for visitor badges
 
 ---
-
-**"The city remembers everything. You only need to remember who you are." — NeoSarai Public Interface v2.9**

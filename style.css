@@ -935,6 +935,9 @@ h2 {
   cursor: pointer;
   color: var(--secondary-color-dark) !important;
   animation: flicker 3s infinite;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 @keyframes flicker {
@@ -945,6 +948,12 @@ h2 {
   50% {
     opacity: 0.6;
   }
+}
+
+/* Remove the locked state styling for nav-secret */
+.nav-secret.locked {
+  color: var(--secondary-color-dark) !important;
+  animation: flicker 3s infinite !important;
 }
 
 /* --- Main Sections --- */
