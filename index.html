@@ -3,179 +3,168 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Veridia Prime</title>
-
-    <!-- NEW: AOS (Animate on Scroll) Library for animations -->
+    <title>Veridia Prime // OmniCorp HoloNet Interface</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- NEW: Added 'VT323' font for a retro terminal look -->
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&family=VT323&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- NEW: Scanline overlay for a retro monitor effect -->
-    <div class="scanline-overlay"></div>
+    <!-- Fullscreen Video Background -->
+    <div class="video-background-container">
+      <video
+        id="hero-video"
+        muted
+        playsinline
+        loop
+        poster="path/to/your/video-poster.jpg"
+      >
+        <source src="video.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay"></div>
+    </div>
 
-    <!-- Hidden Audio Player for Background Music -->
+    <div class="scanline-overlay"></div>
+    <div id="particle-container"></div>
     <audio id="bg-music" loop>
-      <!-- NEW: Replace with your actual music file path -->
-      <source src="path/to/your/cyberpunk-music.mp3" type="audio/mpeg" />
+      <source src="music1.flac" type="audio/mpeg" />
     </audio>
 
-    <!-- System Boot-up Overlay -->
     <div id="boot-overlay">
       <div class="boot-text-container">
         <div class="glitch-text" data-text="INITIALIZING SYSTEM...">
           INITIALIZING SYSTEM...
         </div>
-        <div class="progress-bar">
-          <div class="progress"></div>
-        </div>
+        <div class="progress-bar"><div class="progress"></div></div>
         <div class="boot-text">Loading OmniCorp HoloNet Interface... [OK]</div>
       </div>
     </div>
 
+    <!-- Main Grid Container for Cyberbento Layout -->
     <div class="main-container">
-      <!-- Header and Navigation -->
       <header class="main-header">
         <div class="logo glitch-text" data-text="VERIDIA PRIME">
           VERIDIA PRIME
         </div>
         <nav class="main-nav">
           <a href="#lore" class="nav-link">Lore</a>
-          <a href="#districts" class="nav-link">Districts</a>
-          <a href="#data-stream" class="nav-link">Data Stream</a>
-          <!-- NEW: Link to the new AI Data Broker section -->
-          <a href="#data-broker" class="nav-link">Data Broker</a>
-          <a href="#survival-guide" class="nav-link">Survival Guide</a>
-          <span id="secret-access-trigger" class="nav-link nav-secret"
+          <a href="#districts" class="nav-link locked">Districts</a>
+          <a href="#data-broker" class="nav-link locked">Data Broker</a>
+          <a href="#survival-guide" class="nav-link locked">Survival Guide</a>
+          <span id="secret-access-trigger" class="nav-link nav-secret locked"
             >[ACCESS_DENIED]</span
           >
         </nav>
-        <div class="theme-switcher">
-          <input type="checkbox" id="theme-toggle" class="theme-toggle" />
-          <label for="theme-toggle" class="theme-label"></label>
-        </div>
       </header>
 
-      <!-- Hero Section -->
       <section id="hero">
         <div class="hero-content">
-          <!-- NEW: The h1 will now have a typewriter effect from Typed.js -->
           <h1 id="hero-title"></h1>
-          <p data-aos="fade-up" data-aos-delay="200">
+          <p data-aos="fade-up" data-aos-delay="200" class="hero-subtitle">
             Welcome, tourist. Explore the jewel of the new world. Veridia Prime:
             where technology and nature achieve perfect, beautiful synthesis.
           </p>
           <a
             href="#lore"
-            class="cta-button"
+            id="start-tour-button"
+            class="cta-button pulse-animation"
             data-aos="fade-up"
             data-aos-delay="400"
-            >Enter the City ></a
+            >Begin Your Tour ></a
           >
         </div>
       </section>
 
-      <!-- City Lore Section -->
       <section id="lore" class="content-section" data-aos="fade-right">
-        <h2>[TRANSMISSION_ID: 001] City Lore</h2>
+        <h2>[TRANSMISSION_ID: 001] Official City Lore</h2>
         <div class="lore-container">
-          <p>
-            Veridia Prime rose from the ashes of the Great Blight, a testament
-            to OmniCorp's vision. We terraformed the toxic wastes into a
-            thriving urban jungle, a self-sustaining arcology powered by
-            geo-thermal vents and corporate ambition. Our citizens enjoy
-            unparalleled safety and prosperity under the watchful eye of the
-            Omni-Grid. Remember: Compliance ensures harmony.
-          </p>
-          <p class="hidden-lore" id="hidden-lore-1">
-            <span class="redacted">[REDACTED]</span> They lie. The "Blight" was
-            their own creation, a terraforming experiment gone wrong. They built
-            this "paradise" on the bones of those who resisted. The green is
-            just a mask for the rot underneath. Don't trust the water. Don't
-            trust the air. Trust only the static between stations.
-          </p>
+          <div class="data-stream-effect">
+            <p class="official-text">
+              Veridia Prime rose from the ashes of the Great Blight, a testament
+              to OmniCorp's vision. We terraformed the toxic wastes into a
+              thriving urban jungle, a self-sustaining arcology powered by
+              geo-thermal vents and corporate ambition. Remember: Compliance
+              ensures harmony.
+            </p>
+            <p class="hidden-lore" id="hidden-lore-1">
+              <span class="redacted">[REDACTED]</span> They lie. The "Blight"
+              was their own creation, an experiment gone wrong. They built this
+              "paradise" on bones. The green is a mask for the rot. Don't trust
+              the water. Don't trust the air. Trust only the static.
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- Districts Section -->
-      <section id="districts" class="content-section">
+      <section id="districts" class="content-section locked">
+        <div class="lock-overlay">
+          <div class="lock-animation">🔒</div>
+          SYSTEM LOCK // FURTHER ACCESS REQUIRED
+        </div>
         <h2 data-aos="fade-up">[DATA_NODE: 002] City Districts</h2>
         <div class="districts-grid">
-          <div class="district-card" data-aos="fade-up" data-aos-delay="100">
-            <!-- NEW: Image placement for district cards. Replace the src. -->
-            <img src="1.jpeg" alt="The Atrium" class="district-image" />
+          <div
+            class="district-card floating-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-district="The Atrium"
+            data-image="1.jpeg"
+          >
+            <div class="card-glow"></div>
             <h3>The Atrium</h3>
-            <p>
-              The gleaming corporate heart of the city. Towers of chrome and
-              cultivated flora pierce the synthetic sky. A must-see for any
-              visitor.
-            </p>
+            <p>The gleaming corporate heart of the city.</p>
+            <span class="district-cta"> > Jack In </span>
           </div>
-          <div class="district-card" data-aos="fade-up" data-aos-delay="200">
-            <!-- NEW: Image placement for district cards. Replace the src. -->
-            <img src="2.jpeg" alt="The Geoscape" class="district-image" />
+          <div
+            class="district-card floating-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-district="The Geoscape"
+            data-image="2.jpeg"
+          >
+            <div class="card-glow"></div>
             <h3>The Geoscape</h3>
-            <p>
-              Vast, bioluminescent caverns where the city's food and resources
-              are... grown. The air is thick with pollen and whispers.
-            </p>
+            <p>Vast, bioluminescent caverns where resources are... grown.</p>
+            <span class="district-cta"> > Jack In </span>
           </div>
-          <div class="district-card" data-aos="fade-up" data-aos-delay="300">
-            <!-- NEW: Image placement for district cards. Replace the src. -->
-            <img src="3.jpeg" alt="The Sump" class="district-image" />
+          <div
+            class="district-card floating-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-district="The Sump"
+            data-image="3.jpeg"
+          >
+            <div class="card-glow"></div>
             <h3>The Sump</h3>
-            <p>
-              The old city ruins, now the underbelly. A chaotic, neon-drenched
-              market of contraband tech, street food, and secrets. Enter at your
-              own risk.
-            </p>
+            <p>The chaotic, neon-drenched underbelly of the old city.</p>
+            <span class="district-cta"> > Jack In </span>
           </div>
         </div>
       </section>
 
-      <!-- Data Dashboard Section -->
-      <section id="data-stream" class="content-section">
-        <h2 data-aos="fade-up">[LIVE_FEED: 003] Omni-Grid Data Stream</h2>
-        <div class="dashboard">
-          <div class="data-widget" data-aos="zoom-in">
-            <h4>Air Quality Index</h4>
-            <p class="data-value" id="air-quality">99.8% PURIFIED</p>
-          </div>
-          <div class="data-widget" data-aos="zoom-in" data-aos-delay="100">
-            <h4>Citizen Compliance</h4>
-            <p class="data-value" id="compliance">97.3%</p>
-          </div>
-          <div class="data-widget" data-aos="zoom-in" data-aos-delay="200">
-            <h4>Network Security</h4>
-            <p class="data-value" id="network-status">STATUS: SECURE</p>
-            <p
-              class="data-value hidden-data"
-              id="network-hack"
-              style="display: none"
-            >
-              BREACH DETECTED: [SECTOR_7G]
-            </p>
-          </div>
+      <section id="data-broker" class="content-section locked">
+        <div class="lock-overlay">
+          <div class="lock-animation">🔒</div>
+          SYSTEM LOCK // FURTHER ACCESS REQUIRED
         </div>
-      </section>
-
-      <!-- NEW: Data Broker (Gemini API) Section -->
-      <section id="data-broker" class="content-section">
         <h2 data-aos="fade-up">[CONNECTION_NODE: 004] Data Broker</h2>
-        <p data-aos="fade-up">
-          Looking for information the Omni-Grid won't show you? Ask the broker.
-          Some questions are more expensive than others. Be discreet.
+        <p data-aos="fade-up" class="section-subtitle">
+          Looking for info the Omni-Grid won't show you? Ask the broker. Some
+          questions are more expensive than others. Be discreet.
         </p>
-        <div class="broker-terminal" data-aos="fade-up">
+        <div class="broker-terminal breathing-animation" data-aos="fade-up">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span
+            ><span class="terminal-dot yellow"></span
+            ><span class="terminal-dot green"></span>
+            <span class="terminal-title">SILAS_BROKER.exe</span>
+          </div>
           <div id="broker-output" class="broker-output">
-            <p>&gt; Connection established. Awaiting query...</p>
+            <p>> Connection established. Awaiting query...</p>
           </div>
           <div class="broker-input-line">
             <span class="prompt">&gt;</span>
@@ -186,13 +175,22 @@
               placeholder="Ask a question..."
               autocomplete="off"
             />
-            <button id="broker-submit" class="broker-submit">Transmit</button>
+            <button id="broker-submit" class="broker-submit pulse-btn">
+              Transmit
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- Survival Guide Section -->
-      <section id="survival-guide" class="content-section" data-aos="fade-left">
+      <section
+        id="survival-guide"
+        class="content-section locked"
+        data-aos="fade-left"
+      >
+        <div class="lock-overlay">
+          <div class="lock-animation">🔒</div>
+          SYSTEM LOCK // FURTHER ACCESS REQUIRED
+        </div>
         <h2>[SURVIVAL_PROTOCOL: 005] Tourist Advisory</h2>
         <div class="survival-tabs">
           <button class="tab-link active" onclick="openTab(event, 'Slang')">
@@ -206,89 +204,175 @@
           </button>
         </div>
         <div id="Slang" class="tab-content" style="display: block">
-          <ul>
-            <li>
+          <ul class="glossary-list">
+            <li class="glossary-item">
               <strong>Chrome-Head:</strong> Someone obsessed with cybernetic
               enhancements.
             </li>
-            <li>
+            <li class="glossary-item">
               <strong>Static:</strong> Useless information or corporate
               propaganda.
             </li>
-            <li>
+            <li class="glossary-item">
               <strong>Zeroed:</strong> To be erased—digitally and physically. A
               ghost in the machine.
             </li>
-            <li>
+            <li class="glossary-item">
               <strong>Green-Out:</strong> To be fooled by OmniCorp's eco-facade.
             </li>
           </ul>
         </div>
         <div id="Food" class="tab-content">
-          <p>Hungry? The Sump offers... unique local delicacies.</p>
+          <p class="food-intro">
+            Hungry? The Sump offers... unique local delicacies.
+          </p>
           <div class="food-stalls">
-            <div class="food-stall-card">
+            <div
+              class="food-stall-card interactive floating-card"
+              data-stall="Synth-Noodle Bar"
+            >
+              <div class="vendor-avatar">🍜</div>
               <h4>Synth-Noodle Bar</h4>
               <p>
                 "Nutrient paste shaped like noodles. Comes in three colors.
                 Don't ask what the 'meat' is."
               </p>
+              <span class="interact-cta pulse-animation"
+                >> Chat with Vendor</span
+              >
             </div>
-            <div class="food-stall-card">
+            <div
+              class="food-stall-card interactive floating-card"
+              data-stall="Glow-Fungus Skewers"
+            >
+              <div class="vendor-avatar">🍄</div>
               <h4>Glow-Fungus Skewers</h4>
               <p>
                 "Harvested from the deepest parts of the Geoscape. Tastes like
                 static electricity and regret. Mildly hallucinogenic."
               </p>
+              <span class="interact-cta pulse-animation"
+                >> Chat with Vendor</span
+              >
             </div>
           </div>
         </div>
         <div id="Zeroed" class="tab-content">
-          <ol>
-            <li>
+          <ol class="survival-rules">
+            <li class="rule-item">
               Never speak ill of OmniCorp where a camera can see you (hint: they
               see everything).
             </li>
-            <li>Don't connect unauthorized hardware to the public grid.</li>
-            <li>If you see a "Compliance Officer," walk the other way.</li>
-            <li>Pay your data-tithes on time.</li>
+            <li class="rule-item">
+              Don't connect unauthorized hardware to the public grid.
+            </li>
+            <li class="rule-item">
+              If you see a "Compliance Officer," walk the other way.
+            </li>
+            <li class="rule-item">Pay your data-tithes on time.</li>
           </ol>
         </div>
       </section>
 
-      <!-- Secret Access Panel -->
-      <div id="secret-panel" class="secret-panel">
-        <div class="secret-panel-content">
-          <!-- NEW: Optional image placement for the secret panel -->
-          <img
-            src="path/to/your/hacker-icon.png"
-            alt="Root Access Icon"
-            class="secret-panel-icon"
-          />
-          <button id="close-secret-panel" class="close-button">&times;</button>
-          <h3>[//ROOT_ACCESS_GRANTED]</h3>
-          <p>
-            Welcome, Ghost. You found a way in. The official channels are full
-            of static. Here's the real feed.
+      <div id="secret-panel" class="district-modal">
+        <div class="modal-content">
+          <button id="close-secret-panel" class="modal-close">&times;</button>
+          <h3 class="secret-title">[//ROOT_ACCESS_GRANTED]</h3>
+          <p class="secret-intro">
+            The static clears. Here's what they don't want you to know.
           </p>
-          <div class="terminal">
-            <p>> Running decrypt.exe...</p>
-            <p>> OmniCorp Internal Memo 77-B:</p>
-            <p>
-              > ...Geoscape fungus showing unexpected neuro-toxic effects on
-              Sump population. Acceptable losses for Project Chimera...
-            </p>
-            <p class="blink">> _</p>
+          <div id="secret-terminal" class="terminal">
+            <div class="terminal-header">
+              <span class="terminal-dot red"></span
+              ><span class="terminal-dot yellow"></span
+              ><span class="terminal-dot green"></span>
+              <span class="terminal-title">CLASSIFIED_LOGS.exe</span>
+            </div>
+            <div class="terminal-content">
+              <p>> Bypassing OmniCorp firewalls...</p>
+              <p>> Accessing fragmented memory core...</p>
+              <div id="final-revelation" class="revelation-text"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- NEW: Typed.js for typewriter effect -->
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <!-- NEW: AOS (Animate on Scroll) Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <div id="mission-log" class="mission-log breathing-animation">
+      <h4 class="mission-title">MISSION LOG</h4>
+      <div class="mission-progress">
+        <div class="progress-dots">
+          <span class="dot active" data-stage="0"></span
+          ><span class="dot" data-stage="1"></span
+          ><span class="dot" data-stage="2"></span
+          ><span class="dot" data-stage="3"></span
+          ><span class="dot" data-stage="4"></span>
+        </div>
+      </div>
+      <p id="mission-text">Loading objective...</p>
+    </div>
 
+    <div id="district-modal" class="district-modal">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close">&times;</button>
+        <h2 id="modal-title" class="glitch-text" data-text="LOADING...">
+          LOADING...
+        </h2>
+        <div class="modal-body">
+          <div class="modal-image-container">
+            <div class="image-placeholder">
+              <div class="loading-spinner"></div>
+              <p>RENDERING VISUAL DATA...</p>
+            </div>
+            <img
+              id="modal-image"
+              src="path/to/your/placeholder-image.jpg"
+              alt="District View"
+              class="district-image-display"
+            />
+          </div>
+          <div class="modal-text-content">
+            <div id="modal-ai-content" class="ai-content-area">
+              <p class="loading-text">Establishing neural link...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="food-modal" class="district-modal">
+      <div class="modal-content food-modal-content">
+        <button id="food-modal-close" class="modal-close">&times;</button>
+        <h2 id="food-modal-title" class="glitch-text vendor-name">...</h2>
+        <div class="modal-body">
+          <div class="vendor-display">
+            <div id="vendor-avatar" class="large-vendor-avatar">🍜</div>
+            <div class="vendor-mood-indicator">
+              <span class="mood-bar"></span>
+            </div>
+          </div>
+          <div class="chat-area">
+            <div id="food-broker-output" class="chat-output"></div>
+            <div class="chat-input-area">
+              <span class="prompt">&gt;</span>
+              <input
+                type="text"
+                id="food-broker-input"
+                class="chat-input"
+                placeholder="Say something..."
+                autocomplete="off"
+              />
+              <button id="food-broker-submit" class="chat-send pulse-btn">
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
