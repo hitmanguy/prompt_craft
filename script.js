@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const brokerOutput = document.getElementById("broker-output");
 
   // IMPORTANT: Replace "YOUR_API_KEY" with your actual Google AI Studio API key.
-  const API_KEY = "AIzaSyDUqqc4QImcrgxR1uNomvs1y8vM2J3Pcr0";
+  const API_KEY = "your api key";
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
 
   const getGeminiResponse = async (userInput) => {
