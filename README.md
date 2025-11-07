@@ -101,8 +101,8 @@ This project is for educational and creative demonstration purposes. All AI‑ge
 
 ## Credits
 
-**Developed By:** Team NeoSarai
-**Creative Direction:** [Your Name]
+**Developed By:** divorce
+**Creative Direction:** sahil, saarthak, gnan
 **AI Design & Assets:** ChatGPT, Gemini, Midjourney, Leonardo AI
 **Music & Sound Design:** AI‑Generated Ambient Cyberpunk Suite
 **Inspiration:** _Blade Runner_, _Ghost in the Shell_, _Cyberpunk 2077_
